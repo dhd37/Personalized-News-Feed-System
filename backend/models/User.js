@@ -5,7 +5,8 @@ const userSchema = new mongoose.Schema({
     name: {type: String, required: true },
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
-    preferences: [String]
+    preferences: [String],
+    isAdmin: { type: Boolean, default: false } 
 });
 
 // Hash the password before saving the user
@@ -21,6 +22,6 @@ userSchema.methods.comparePassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-module.exports = mongoose.model('User'. userSchema);
+module.exports = mongoose.model('User', userSchema);
 
 

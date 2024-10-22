@@ -5,7 +5,7 @@ const User = require('../models/User');
 
 /* GET users listing. */
 router.get('/', authenticateJWT,  function(req, res, next) {
-  res.send('User info for userId: ${req.user.userId}');
+  res.send(`User info for userId: ${req.user.userId}`); 
 });
 
 // Set users preferences
